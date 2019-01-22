@@ -8,10 +8,17 @@ import matplotlib.pyplot as plt
 import wbpy
 
 
+
 class ScorceCode:
 
     #User inputs in the console the product to market_
     #prod= input("enter the item you desire to sell:")
+
+    def countryName(self):
+        countrynames = [];
+        for country in pycountry.countries:
+            countrynames.append(country.name)
+        return countrynames
 
 
     def forWorld(product):
@@ -23,6 +30,8 @@ class ScorceCode:
         dc=interest_by_region_df.loc[(interest_by_region_df!=0).any(axis=1)]
         return dc
 
+    #def countryProvider(self):
+
 
 
    #User enters the country value
@@ -32,7 +41,7 @@ class ScorceCode:
         pytrend = TrendReq()
         ctemp=pycountry.countries.get(name=Country.title())
         pytrend.build_payload(kw_list=[product], geo=ctemp.alpha_2)
-        interest_by_region_df = pytrend.interest_by_region(resolution='REGION')
+        interest_by_region_df = pytrend.interest_over_time()
         dc = interest_by_region_df.loc[(interest_by_region_df != 0).any(axis=1)]
         return dc
 
@@ -62,29 +71,25 @@ class ScorceCode:
 
 
     def forTotalUsers(Country,city):
-        df1 = pd.read_csv("C:/Users/lakshay/Desktop/udemy/csvFiles/cities.csv")
-        df2 = pd.read_csv("C:/Users/lakshay/Desktop/udemy/csvFiles/penitration.csv")
+        df1 = pd.read_csv("cities.csv")
+        df2 = pd.read_csv("penitration.csv")
         data1 = int(df1.loc[df1['city'] == city.title(), 'pop'])
         data2 = float(df2.loc[df2['country'] == Country.title(), '2016'])
-
-
-
         return int(data1*data2/100)
 
     def forTotalPop(city):
-        df1 = pd.read_csv("C:/Users/lakshay/Desktop/udemy/csvFiles/cities.csv")
+        df1 = pd.read_csv("cities.csv")
 
         data1 = int(df1.loc[df1['city'] == city.title(), 'pop'])
 
         return int(data1)
 
     def forTotalPenitration(Country):
-        df2 = pd.read_csv("C:/Users/lakshay/Desktop/udemy/csvFiles/penitration.csv")
+        df2 = pd.read_csv("penitration.csv")
 
         data2 = float(df2.loc[df2['country'] == Country.title(), '2016'])
 
         return int(data2)
-
 
 
 

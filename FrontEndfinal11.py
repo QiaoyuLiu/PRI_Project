@@ -10,6 +10,7 @@ import pandas as pd
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_qt4agg import NavigationToolbar2QT as NavigationToolbar
 from MainCodefinal import ScorceCode
+import pycountry
 
 
 class App(QMainWindow):
@@ -57,8 +58,8 @@ class MyTableWidget(QWidget):
 
         self.productLabel = QLabel("Product", self)
         self.countryLabel = QLabel("Country", self)
-        self.stateLabel = QLabel("State", self)
-        self.cityLabel = QLabel("City", self)
+        #self.stateLabel = QLabel("State", self)
+        #self.cityLabel = QLabel("City", self)
 
         # Initialise the textbox for all the labels along with the tooltips
 
@@ -77,14 +78,14 @@ class MyTableWidget(QWidget):
 
 
 
-        self.stateTextBox = QComboBox(self)
-        self.stateTextBox.setToolTip("Enter the state here")
+        #self.stateTextBox = QComboBox(self)
+        #self.stateTextBox.setToolTip("Enter the state here")
 
 
 
 
-        self.cityTextBox = QComboBox(self)
-        self.cityTextBox.setToolTip("Enter the city here")
+        #self.cityTextBox = QComboBox(self)
+        #self.cityTextBox.setToolTip("Enter the city here")
 
 
         # Canvas and Toolbar
@@ -133,14 +134,14 @@ class MyTableWidget(QWidget):
 
         self.tab1.layout.addWidget(self.productLabel)
         self.tab1.layout.addWidget(self.productTextBox)
-        self.tab1.layout.addWidget(self.submitButton)
-        self.tab1.layout.addWidget(self.clearAllButton)
         self.tab1.layout.addWidget(self.countryLabel)
         self.tab1.layout.addWidget(self.countryTextBox)
-        self.tab1.layout.addWidget(self.stateLabel)
-        self.tab1.layout.addWidget(self.stateTextBox)
-        self.tab1.layout.addWidget(self.cityLabel)
-        self.tab1.layout.addWidget(self.cityTextBox)
+        self.tab1.layout.addWidget(self.submitButton)
+        self.tab1.layout.addWidget(self.clearAllButton)
+        #self.tab1.layout.addWidget(self.stateLabel)
+        #self.tab1.layout.addWidget(self.stateTextBox)
+        #self.tab1.layout.addWidget(self.cityLabel)
+        #self.tab1.layout.addWidget(self.cityTextBox)
 
 
 
@@ -203,6 +204,8 @@ class MyTableWidget(QWidget):
 
         self.tab4.setLayout(self.tab4Form)
 
+        self.countryTextBox.addItems(ScorceCode.countryName(self))
+
 
         # call the function to get the recommendation and then load it into the textbox
 
@@ -227,11 +230,11 @@ class MyTableWidget(QWidget):
         self.createTable(tableFor)
         print('breakpoint 1')
 
-        self.stateTextBox.clear()
-        self.cityTextBox.clear()
-        self.stateTextBox.addItems(finlistState)
+       # self.stateTextBox.clear()
+        #self.cityTextBox.clear()
+       # self.stateTextBox.addItems(finlistState)
 
-        print(self.stateTextBox.activated[str].connect(self.onActivated1))
+        #print(self.stateTextBox.activated[str].connect(self.onActivated1))
 
 
 
@@ -241,7 +244,7 @@ class MyTableWidget(QWidget):
 
 
 # have to pass the state value to this method !!!!!!!!!!!!!!!!!!
-
+    '''
     def onActivated1(self, StateSelected):
 
 
@@ -318,8 +321,6 @@ class MyTableWidget(QWidget):
          print('end')
         except:
          print('An error occured while retrieving the population data of the city: ' +CitySelected)
-         self.recommendationText.setText('No recommendation found due to lack of precise data for city: ' +CitySelected)
-
 
 
     def createTable(self, tableFor):
@@ -333,8 +334,8 @@ class MyTableWidget(QWidget):
         if(tableFor=="country"):
             self.lsTest = self.gs1
 
-        if(tableFor== "state"):
-            self.lsTest= self.gs2
+        #if(tableFor== "state"):
+         #   self.lsTest= self.gs2
 
 
 
@@ -367,8 +368,7 @@ class MyTableWidget(QWidget):
         # if(y==0)
         # self.tableWidget.setItem(x, y, QTableWidgetItem(self.tableDf[x][y]))
 
-        # self.tableWidget.setItem(0, 1, QTableWidgetItem("Cell (1,2)"))
-
+        # self.tableWidget.setItem(0, 1, QTableWidgetItem("Cell (1,2)"))'''
 
 
     def show_model(self):
@@ -394,8 +394,6 @@ class MyTableWidget(QWidget):
 
     def on_click(self):
         print("\n")
-        self.stateTextBox.clear()
-        self.cityTextBox.clear()
         print(self.productTextBox.text())
         self.productName=self.productTextBox.text()
 
@@ -426,9 +424,9 @@ class MyTableWidget(QWidget):
 
 
     def clear_on_click(self):
-        self.countryTextBox.clear()
-        self.stateTextBox.clear()
-        self.cityTextBox.clear()
+        #self.countryTextBox.clear()
+       # self.stateTextBox.clear()
+       # self.cityTextBox.clear()
         self.productTextBox.clear()
 
         print('all clear')
