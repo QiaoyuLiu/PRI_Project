@@ -10,7 +10,6 @@ import pandas as pd
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_qt4agg import NavigationToolbar2QT as NavigationToolbar
 from MainCodefinal import ScorceCode
-import pycountry
 
 
 class App(QMainWindow):
@@ -21,7 +20,7 @@ class App(QMainWindow):
         self.left = 200
         self.top = 200
         self.width = 480
-        self.height = 320
+        self.height = 700
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
         self.setWindowIcon(QIcon('six_sigma.ico'))
@@ -125,7 +124,7 @@ class MyTableWidget(QWidget):
 
         # Add tabs
         self.tabs.addTab(self.tab1, "The Input Tab")
-        self.tabs.addTab(self.tab2, "The Graphs")
+        self.tabs.addTab(self.tab2, "The result")
         self.tabs.addTab(self.tab3, "The Data")
         self.tabs.addTab(self.tab4, "The Recommendation")
 
@@ -154,19 +153,23 @@ class MyTableWidget(QWidget):
         # Canvas and Toolbar
         # a figure instance to plot on
         self.figure = Figure()
+        self.figureComp = Figure()
 
         # this is the Canvas Widget that displays the `figure`
         # it takes the `figure` instance as a parameter to __init__
         self.canvas = FigureCanvas(self.figure)
+        self.canvasComp = FigureCanvas(self.figureComp )
 
         # this is the Navigation widget
         # it takes the Canvas widget and a parent
         self.toolbar = NavigationToolbar(self.canvas, self)
 
-        # set the layout
+        # Create the second tab
         tab2layout = QVBoxLayout()
         tab2layout.addWidget(self.toolbar)
         tab2layout.addWidget(self.canvas)
+        tab2layout.addWidget(self.canvasComp)
+
 
         self.tab2.setLayout(tab2layout)
 
@@ -205,9 +208,25 @@ class MyTableWidget(QWidget):
         self.tab4.setLayout(self.tab4Form)
 
         self.countryTextBox.addItems(ScorceCode.countryName(self))
+        '''
+        x = ['a', 'b', 'c', 'd']
+        y = [23,21,32,13]
+        self.barPainting(x,y)
+        '''
 
 
         # call the function to get the recommendation and then load it into the textbox
+
+        #Provide two list of data and draw the bar chart
+    def barPainting(self,lables,data):
+        width = 0.5
+        self.axes = self.figureComp.add_subplot(111)
+        self.axes.clear()
+        self.axes.bar([0,1,2,3],data,width,align="center")
+        self.axes.set_xticks([0,1,2,3])
+        self.axes.set_xticklabels(lables, rotation=40)
+        self.axes.tick_params(axis='x', labelsize=8)
+
 
 
     def onActivated(self, text):
@@ -424,17 +443,13 @@ class MyTableWidget(QWidget):
 
 
     def clear_on_click(self):
-        #self.countryTextBox.clear()
-       # self.stateTextBox.clear()
-       # self.cityTextBox.clear()
         self.productTextBox.clear()
-
         print('all clear')
 
     def plot(self,data):
 
         # hit only if we have values on all the four components
-        if (self.productTextBox.text()):
+        #if (self.productTextBox.text()):
 
             print("Inside the plot method")
             # Call the api #TODO
@@ -460,8 +475,8 @@ class MyTableWidget(QWidget):
             # refresh canvas
             self.canvas.draw()
 
-        else:
-            QMessageBox.about(self, "Inputs", "Please check your inputs")
+       # else:
+          #  QMessageBox.about(self, "Inputs", "Please check your inputs")
 
 
 
@@ -469,4 +484,5 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = App()
     sys.exit(app.exec_())
+    barpainting()
 
