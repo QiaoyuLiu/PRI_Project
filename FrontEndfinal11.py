@@ -125,7 +125,7 @@ class MyTableWidget(QWidget):
         # Add tabs
         self.tabs.addTab(self.tab1, "The Input Tab")
         self.tabs.addTab(self.tab2, "The result")
-        self.tabs.addTab(self.tab3, "The Data")
+        #self.tabs.addTab(self.tab3, "The Data")
         self.tabs.addTab(self.tab4, "The Recommendation")
 
         # Create first tab
@@ -153,13 +153,12 @@ class MyTableWidget(QWidget):
         # Canvas and Toolbar
         # a figure instance to plot on
         self.figure = Figure()
-        self.figureComp = Figure()
+        self.figureComp = Figure(figsize=(5, 5))
 
         # this is the Canvas Widget that displays the `figure`
         # it takes the `figure` instance as a parameter to __init__
         self.canvas = FigureCanvas(self.figure)
-        self.canvasComp = FigureCanvas(self.figureComp )
-
+        self.canvasComp = FigureCanvas(self.figureComp)
         # this is the Navigation widget
         # it takes the Canvas widget and a parent
         self.toolbar = NavigationToolbar(self.canvas, self)
@@ -175,14 +174,14 @@ class MyTableWidget(QWidget):
 
         # Tab 3 The Data
 
-        self.tab3Table = QFormLayout()
+        #self.tab3Table = QFormLayout()
 
-        self.tableWidget = QTableWidget()
-        self.tab3Table.addWidget(self.tableWidget)
+        #self.tableWidget = QTableWidget()
+        #self.tab3Table.addWidget(self.tableWidget)
 
-        self.tab3.setLayout(self.tab3Table)
+        #self.tab3.setLayout(self.tab3Table)
 
-        self.tab3Table.addRow(self.tableWidget)
+        #self.tab3Table.addRow(self.tableWidget)
 
 
 
@@ -192,40 +191,46 @@ class MyTableWidget(QWidget):
         self.exportCSVButton.setToolTip("To export the above data to a CSV")
         self.exportCSVButton.clicked.connect(self.export_csv_connect)
 
-        self.tab3Table.addRow(self.exportCSVButton)
-        self.tab3.setLayout(self.tab3Table)
+        #self.tab3Table.addRow(self.exportCSVButton)
+        #self.tab3.setLayout(self.tab3Table)
 
         #self.tab3.layout.addWidget(self.exportCSVButton)
 
         # Tab 4 The Recommendation
 
         self.tab4Form = QFormLayout()
-        self.recommendationText = QTextEdit()
+        self.recommendationText = QLabel()
         self.recommendationText.setMinimumSize(480, 320)
         self.recommendationText.setToolTip("This tab shows the recommendation ")
         self.tab4Form.addRow(self.recommendationText)
 
         self.tab4.setLayout(self.tab4Form)
 
+
         self.countryTextBox.addItems(ScorceCode.countryName(self))
+        str = "test"
+        self.recommendationText.setText(str)
         '''
-        x = ['a', 'b', 'c', 'd']
+        #test case
+        x = ['aaa', 'bbbb', 'cbccc', 'dddd']
         y = [23,21,32,13]
-        self.barPainting(x,y)
+        z = [1,2,33,4]
+        self.barPainting(x,y,121)
+        self.barPainting(x,y,122)
         '''
 
 
         # call the function to get the recommendation and then load it into the textbox
 
-        #Provide two list of data and draw the bar chart
-    def barPainting(self,lables,data):
+        #Provide labels and data as lists and the number of subplot to draw the bar chart
+    def barPainting(self,labels,data,n_subplot):
         width = 0.5
-        self.axes = self.figureComp.add_subplot(111)
+        self.axes = self.figureComp.add_subplot(n_subplot)
         self.axes.clear()
-        self.axes.bar([0,1,2,3],data,width,align="center")
-        self.axes.set_xticks([0,1,2,3])
-        self.axes.set_xticklabels(lables, rotation=40)
-        self.axes.tick_params(axis='x', labelsize=8)
+        self.axes.barh(labels,data,width,align="center")
+        #self.axes.set_xticks([0,1,2,3])
+        self.axes.set_yticklabels(labels, rotation=40)
+        self.axes.tick_params(axis='y', labelsize=5)
 
 
 
@@ -387,8 +392,7 @@ class MyTableWidget(QWidget):
         # if(y==0)
         # self.tableWidget.setItem(x, y, QTableWidgetItem(self.tableDf[x][y]))
 
-        # self.tableWidget.setItem(0, 1, QTableWidgetItem("Cell (1,2)"))'''
-
+        # self.tableWidget.setItem(0, 1, QTableWidgetItem("Cell (1,2)"))
 
     def show_model(self):
         font = QtGui.QFont()
@@ -399,7 +403,7 @@ class MyTableWidget(QWidget):
 
         # selmodel = self.creSelectModel[str(self.comboBox.currentText())]
         self.textEdit3.setText("1234566465464")
-
+'''
     def export_csv_connect(self):
         print('Export data to CSV operation: ')
 
@@ -484,5 +488,4 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = App()
     sys.exit(app.exec_())
-    barpainting()
 
