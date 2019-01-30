@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import QTableWidgetItem, QTableWidget,QTextEdit, QMainWindo
 from PyQt5.QtGui import QIcon, QFont
 from PyQt5.QtCore import *
 import matplotlib.pyplot as plt
+from PyQt5.uic.properties import QtGui
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
 import pandas as pd
 from matplotlib.figure import Figure
@@ -403,12 +404,26 @@ class MyTableWidget(QWidget):
 
 
         ls = ScorceCode.forWorld(self.productName)
+        ls1, ls2 = ScorceCode.forCountryMarketing('Greece')  #unpacking these two variable dataframes with the results
+        print(ls1['Business Card'].mean())  # Print average popularity for marketing on this country
+        print(ls1['Billboards'].mean())
+        print(ls1['Bus Shelter Ads'].mean())
+        print(ls1['Print Ads'].mean())
+        print(ls1['Television Advertising'].mean())
+        print('-----------------------------------------------')
+        print(ls2['Email marketing'].mean())  # Print average popularity for marketing on this country
+        print(ls2['Radio Advertising'].mean())
+        print(ls2['Mobile Marketing'].mean())
+        print(ls2['Fliers'].mean())
+        print(ls2['Newspaper Marketing'].mean())
+
+
         #print(ls)
         #ls.to_csv('C:/Users/lakshay/Desktop/udemy/PRI_Exported_CSV_files/finlistWorld.csv')
         self.gs = ls
         finlist = ls.index.tolist()
         #print(finlist)
-        print('someht')
+        #print('someht')
         self.countryTextBox.clear()
         self.countryTextBox.addItems(finlist)
         self.countryTextBox.activated[str].connect(self.onActivated)
@@ -438,7 +453,7 @@ class MyTableWidget(QWidget):
         # hit only if we have values on all the four components
         if (self.productTextBox.text()):
 
-            print("Inside the plot method")
+            #print("Inside the plot method")
             # Call the api #TODO
 
 
@@ -446,7 +461,7 @@ class MyTableWidget(QWidget):
             #statisticsPerState
             #statisticsPerUsers
 
-            print('plotBreak')
+            #print('plotBreak')
 
 
 
