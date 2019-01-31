@@ -23,9 +23,25 @@ class ScorceCode:
         related_queries = pytrend.related_queries()
         #interest_by_region_df.values.tolist() gives us data of numbers
         dc=interest_by_region_df.loc[(interest_by_region_df!=0).any(axis=1)]
-        print(related_topics)
-        print(related_queries)
-        return dc
+
+
+        list_of_related_queries = []
+
+        for k in related_queries:
+            rel_qarray = related_queries[k]['top']
+
+        related_queries2 = rel_qarray.loc[:, 'query' ]
+        df = pd.DataFrame(related_queries2, columns=['query'])
+        for index, row in df.iterrows():
+            list_of_related_queries.append(row["query"])
+
+        for k in related_topics:
+            related_tarray = related_topics[k]['title']
+
+        list_of_related_topics = related_tarray.values.tolist()
+
+
+        return dc, list_of_related_queries, list_of_related_topics
 
     def forWorld1(product):
         kw_list = [product]
@@ -53,13 +69,12 @@ class ScorceCode:
     def forCountryMarketing(Country):
         pytrend = TrendReq()
         ctemp = pycountry.countries.get(name=Country.title())
-        pytrend.build_payload(kw_list=['Email marketing', 'Radio Advertising', 'Mobile Marketing', 'Fliers','Newspaper Marketing'], geo=ctemp.alpha_2) #It can take maximum 5 products in kw_list
-        interest_by_region_df = pytrend.interest_by_region(resolution='REGION')
-        pytrend.build_payload(kw_list=['Business Card', 'Billboards', 'Bus Shelter Ads', 'Print Ads', 'Television Advertising'],geo=ctemp.alpha_2)
-        interest_by_region_df1 = pytrend.interest_by_region(resolution='REGION')
+        pytrend.build_payload(kw_list=['Email marketing', 'Radio Advertising', 'Mobile Marketing', 'Television Advertising', 'Social Media Usage'], geo=ctemp.alpha_2) #It can take maximum 5 products in kw_list
+        digital_marketing = pytrend.interest_by_region(resolution='REGION')
+        pytrend.build_payload(kw_list=['Newspaper Marketing', 'Billboards', 'Bus Shelter Ads', 'Print Ads','Fliers'],geo=ctemp.alpha_2)
+        analog_marketing = pytrend.interest_by_region(resolution='REGION')
 
-
-        return interest_by_region_df1 , interest_by_region_df
+        return digital_marketing , analog_marketing
 
 
 

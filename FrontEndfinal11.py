@@ -403,19 +403,25 @@ class MyTableWidget(QWidget):
         self.countryTextBox.activated[str].connect(self.onActivated)
 
 
-        ls = ScorceCode.forWorld(self.productName)
-        ls1, ls2 = ScorceCode.forCountryMarketing('Greece')  #unpacking these two variable dataframes with the results
-        print(ls1['Business Card'].mean())  # Print average popularity for marketing on this country
-        print(ls1['Billboards'].mean())
-        print(ls1['Bus Shelter Ads'].mean())
-        print(ls1['Print Ads'].mean())
-        print(ls1['Television Advertising'].mean())
-        print('-----------------------------------------------')
-        print(ls2['Email marketing'].mean())  # Print average popularity for marketing on this country
-        print(ls2['Radio Advertising'].mean())
-        print(ls2['Mobile Marketing'].mean())
-        print(ls2['Fliers'].mean())
-        print(ls2['Newspaper Marketing'].mean())
+        ls, rel_quer, rel_top = ScorceCode.forWorld(self.productName)
+        digital, analog = ScorceCode.forCountryMarketing('China')  #unpacking these two variable dataframes with the results
+
+        print('--------------Digital Marketing---------------')
+        print(digital['Email marketing'].mean())  # Print average popularity for marketing on this country
+        print(digital['Radio Advertising'].mean())
+        print(digital['Mobile Marketing'].mean())
+        print(digital['Television Advertising'].mean())
+        print(digital['Social Media Usage'].mean())
+        print('--------------Analog Marketing---------------')
+        print(analog['Newspaper Marketing'].mean())  # Print average popularity for marketing on this country
+        print(analog['Billboards'].mean())
+        print(analog['Bus Shelter Ads'].mean())
+        print(analog['Print Ads'].mean())
+        print(analog['Fliers'].mean())
+
+        print(rel_quer)
+        print(rel_top)
+
 
 
         #print(ls)
