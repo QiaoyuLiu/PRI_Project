@@ -39,24 +39,26 @@ class ScorceCode:
             related_tarray = related_topics[k]['title']
 
         list_of_related_topics = related_tarray.values.tolist()
-
-
         return dc, list_of_related_queries, list_of_related_topics
 
-    def forWorld1(product):
-        kw_list = [product]
-        pytrend = TrendReq()
-        pytrend.build_payload(kw_list )
-        interest_over_time_df = pytrend.get_historical_interest(kw_list, year_start=2017, month_start=1, day_start=1, hour_start=0, year_end=2018, month_end=1, day_end=1, hour_end=0, cat=0, geo='', gprop='', sleep=0)
-        #interest_by_region_df.values.tolist() gives us data of numbers
-        print(list(interest_over_time_df.columns.values))
-        dc=interest_over_time_df.loc[(interest_over_time_df!=0).any(axis=1)]
-        return dc
+
+
+
+  #  def forWorld1(product):
+  #      kw_list = [product]
+  #      pytrend = TrendReq()
+  #     pytrend.build_payload(kw_list )
+  #      interest_over_time_df = pytrend.get_historical_interest(kw_list, year_start=2017, month_start=1, day_start=1, hour_start=0, year_end=2018, month_end=1, day_end=1, hour_end=0, cat=0, geo='', gprop='', sleep=0)
+  #      #interest_by_region_df.values.tolist() gives us data of numbers
+  #      print(list(interest_over_time_df.columns.values))
+  #      dc=interest_over_time_df.loc[(interest_over_time_df!=0).any(axis=1)]
+  #      return dc
 
 
 
    #User enters the country value
     # somehow find a way to map the name of the country to country codes
+
 
     def forCountry(Country, product):
         pytrend = TrendReq()
@@ -65,6 +67,10 @@ class ScorceCode:
         interest_by_region_df = pytrend.interest_by_region(resolution='REGION')
         dc = interest_by_region_df.loc[(interest_by_region_df != 0).any(axis=1)]
         return dc
+
+
+
+
 
     def forCountryMarketing(Country):
         pytrend = TrendReq()
