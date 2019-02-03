@@ -63,10 +63,37 @@ class ScorceCode:
     def forCountry(Country, product):
         pytrend = TrendReq()
         ctemp=pycountry.countries.get(name=Country.title())
+        print(Country.title())
         pytrend.build_payload(kw_list=[product], geo=ctemp.alpha_2)
         interest_by_region_df = pytrend.interest_by_region(resolution='REGION')
+
+        related_topics = pytrend.related_topics()
+        related_queries = pytrend.related_queries()
+
         dc = interest_by_region_df.loc[(interest_by_region_df != 0).any(axis=1)]
-        return dc
+
+        list_of_related_queries = []
+        list_of_related_topics = []
+
+
+        for k in related_queries:
+            rel_qarray = related_queries[k]['top']
+
+
+        if rel_qarray is not None:
+            related_queries2 = rel_qarray.loc[:, 'query']
+            df = pd.DataFrame(related_queries2, columns=['query'])
+            for index, row in df.iterrows():
+                list_of_related_queries.append(row["query"])
+
+
+            for k in related_topics:
+                if related_topics[k]['title'] is not None:
+                    related_tarray = related_topics[k]['title']
+
+            list_of_related_topics = related_tarray.values.tolist()
+
+        return dc, list_of_related_queries, list_of_related_topics
 
 
 

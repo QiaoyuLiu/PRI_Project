@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bd12ec1d-2096-4702-a9fa-70633dd27a24" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEndfinal11.py" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEndfinal11.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainCodefinal.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainCodefinal.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -12,15 +13,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/PRI_Project$FrontEndfinal11.coverage" NAME="FrontEndfinal11 Coverage Results" MODIFIED="1549124780312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PRI_Project$FrontEndfinal11.coverage" NAME="FrontEndfinal11 Coverage Results" MODIFIED="1549185732368" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MainCodefinal.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-20">
-              <caret line="54" column="3" selection-start-line="54" selection-start-column="3" selection-end-line="54" selection-end-column="3" />
+            <state relative-caret-position="232">
+              <caret line="75" column="34" selection-start-line="75" selection-start-column="34" selection-end-line="75" selection-end-column="34" />
               <folding>
                 <element signature="e#2#21#0" expanded="true" />
               </folding>
@@ -28,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FrontEndfinal11.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1993">
-              <caret line="415" column="72" selection-start-line="415" selection-start-column="72" selection-end-line="415" selection-end-column="72" />
+            <state relative-caret-position="201">
+              <caret line="407" selection-start-line="407" selection-end-line="407" />
               <folding>
                 <element signature="e#1#11#0" expanded="true" />
               </folding>
@@ -63,6 +64,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -74,7 +76,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -139,12 +140,13 @@
       <workItem from="1548765923622" duration="716000" />
       <workItem from="1548847708969" duration="12638000" />
       <workItem from="1549019258766" duration="170000" />
-      <workItem from="1549123760036" duration="621000" />
+      <workItem from="1549123760036" duration="1258000" />
+      <workItem from="1549183253909" duration="2287000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25092000" />
+    <option name="totallyTimeSpent" value="28016000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -159,12 +161,12 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16738197" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1695279" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3120482" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21566264" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -200,22 +202,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MainCodefinal.py">
+    <entry file="file://$PROJECT_DIR$/FrontEndfinal11.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-20">
-          <caret line="54" column="3" selection-start-line="54" selection-start-column="3" selection-end-line="54" selection-end-column="3" />
+        <state relative-caret-position="201">
+          <caret line="407" selection-start-line="407" selection-end-line="407" />
           <folding>
-            <element signature="e#2#21#0" expanded="true" />
+            <element signature="e#1#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEndfinal11.py">
+    <entry file="file://$PROJECT_DIR$/MainCodefinal.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1993">
-          <caret line="415" column="72" selection-start-line="415" selection-start-column="72" selection-end-line="415" selection-end-column="72" />
+        <state relative-caret-position="232">
+          <caret line="75" column="34" selection-start-line="75" selection-start-column="34" selection-end-line="75" selection-end-column="34" />
           <folding>
-            <element signature="e#1#11#0" expanded="true" />
+            <element signature="e#2#21#0" expanded="true" />
           </folding>
         </state>
       </provider>

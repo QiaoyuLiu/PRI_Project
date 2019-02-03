@@ -66,7 +66,8 @@ class MyTableWidget(QWidget):
         self.productTextBox = QLineEdit(self)
 
         self.productTextBox.setToolTip("Enter the product here")
-        self.countryTextBox = QComboBox(self)
+        #self.countryTextBox = QComboBox(self)
+        self.countryTextBox = QLineEdit(self)
         self.countryTextBox.setToolTip("Enter the country here")
 
 
@@ -400,11 +401,12 @@ class MyTableWidget(QWidget):
         print(self.productTextBox.text())
         self.productName=self.productTextBox.text()
 
-        self.countryTextBox.activated[str].connect(self.onActivated)
+        #self.countryTextBox.activated[str].connect(self.onActivated)
+        self.countryName=self.countryTextBox.text()
 
 
-        ls, rel_quer, rel_top = ScorceCode.forWorld(self.productName)
-        digital, analog = ScorceCode.forCountryMarketing('China')  #unpacking these two variable dataframes with the results
+        ls, rel_quer, rel_top = ScorceCode.forCountry(self.countryName,self.productName)
+        digital, analog = ScorceCode.forCountryMarketing(self.countryName)  #unpacking these two variable dataframes with the results
 
         print('--------------Digital Marketing---------------')
         print(digital['Email marketing'].mean())  # Print average popularity for marketing on this country
@@ -430,9 +432,9 @@ class MyTableWidget(QWidget):
         finlist = ls.index.tolist()
         #print(finlist)
         #print('someht')
-        self.countryTextBox.clear()
-        self.countryTextBox.addItems(finlist)
-        self.countryTextBox.activated[str].connect(self.onActivated)
+        #self.countryTextBox.clear()
+        #self.countryTextBox.addItems(finlist)
+        #self.countryTextBox.activated[str].connect(self.onActivated)
         #makeitastring = ''.join(map(str, finlist))
 
         #print('the string is')
