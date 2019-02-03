@@ -16,11 +16,11 @@ class App(QMainWindow):
 
     def __init__(self):
         super().__init__()
-        self.title = 'The Six Sigma Samurais'
+        self.title = 'The blue ocean'
         self.left = 200
         self.top = 200
-        self.width = 480
-        self.height = 700
+        self.width = 700
+        self.height = 100
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
         self.setWindowIcon(QIcon('six_sigma.ico'))
@@ -48,11 +48,7 @@ class MyTableWidget(QWidget):
 
         # The dataframe
         self.df = pd.DataFrame()
-        self.gs = pd.DataFrame()
-        self.gs1 = pd.DataFrame()
-        self.gs2 = pd.DataFrame()
-
-
+        self.gs = []
         # Initialize the labels for the first tab
 
         self.productLabel = QLabel("Product", self)
@@ -65,39 +61,18 @@ class MyTableWidget(QWidget):
         self.productTextBox = QLineEdit(self)
 
         self.productTextBox.setToolTip("Enter the product here")
-        self.countryTextBox = QComboBox(self)
+        self.countryTextBox = QLineEdit(self)
         self.countryTextBox.setToolTip("Enter the country here")
 
-
-
-
-
-
-
-
-
-
-        #self.stateTextBox = QComboBox(self)
-        #self.stateTextBox.setToolTip("Enter the state here")
-
-
-
-
-        #self.cityTextBox = QComboBox(self)
-        #self.cityTextBox.setToolTip("Enter the city here")
 
 
         # Canvas and Toolbar
         # a figure instance to plot on
         self.figure = Figure()
-        self.figure3 = Figure()
-        self.figure4 = Figure()
 
         # this is the Canvas Widget that displays the `figure`
         # it takes the `figure` instance as a parameter to __init__
         self.canvas = FigureCanvas(self.figure)
-        self.canvas3 = FigureCanvas(self.figure3)
-        self.canvas4 = FigureCanvas(self.figure4)
 
         self.submitButton = QPushButton("Submit")
         self.submitButton.setToolTip("To submit and get results")
@@ -137,10 +112,6 @@ class MyTableWidget(QWidget):
         self.tab1.layout.addWidget(self.countryTextBox)
         self.tab1.layout.addWidget(self.submitButton)
         self.tab1.layout.addWidget(self.clearAllButton)
-        #self.tab1.layout.addWidget(self.stateLabel)
-        #self.tab1.layout.addWidget(self.stateTextBox)
-        #self.tab1.layout.addWidget(self.cityLabel)
-        #self.tab1.layout.addWidget(self.cityTextBox)
 
 
 
@@ -153,7 +124,7 @@ class MyTableWidget(QWidget):
         # Canvas and Toolbar
         # a figure instance to plot on
         self.figure = Figure()
-        self.figureComp = Figure(figsize=(5, 5))
+        self.figureComp = Figure()
 
         # this is the Canvas Widget that displays the `figure`
         # it takes the `figure` instance as a parameter to __init__
@@ -172,53 +143,28 @@ class MyTableWidget(QWidget):
 
         self.tab2.setLayout(tab2layout)
 
-        # Tab 3 The Data
-
-        #self.tab3Table = QFormLayout()
-
-        #self.tableWidget = QTableWidget()
-        #self.tab3Table.addWidget(self.tableWidget)
-
-        #self.tab3.setLayout(self.tab3Table)
-
-        #self.tab3Table.addRow(self.tableWidget)
-
-
-
-        # Buttons to be added to the first tab
-        self.exportCSVButton = QPushButton("Export Data to CSV")
-        self.exportCSVButton.resize(self.clearAllButton.sizeHint())
-        self.exportCSVButton.setToolTip("To export the above data to a CSV")
-        self.exportCSVButton.clicked.connect(self.export_csv_connect)
-
-        #self.tab3Table.addRow(self.exportCSVButton)
-        #self.tab3.setLayout(self.tab3Table)
-
-        #self.tab3.layout.addWidget(self.exportCSVButton)
-
         # Tab 4 The Recommendation
 
         self.tab4Form = QFormLayout()
+        self.tablewidget = QTableWidget()
+        self.tablewidget2 = QTableWidget()
+        self.tablewidget.setMinimumSize(300,70)
+        self.tablewidget2.setMinimumSize(300,70)
+        self.tablewidget.horizontalHeader().setStretchLastSection(True)
+        self.tablewidget2.horizontalHeader().setStretchLastSection(True)
         self.recommendationText = QLabel()
-        self.recommendationText.setMinimumSize(480, 320)
+        #self.recommendationText.setMinimumSize(480, 320)
         self.recommendationText.setToolTip("This tab shows the recommendation ")
+        self.relQuerry = QLabel('Related Querry')
+        self.relTop = QLabel('Related Top')
+        self.tab4Form.addRow(self.relQuerry,self.tablewidget)
+        self.tab4Form.addRow(self.relTop,self.tablewidget2)
+        self.tab4.setLayout(self.tab4Form)
         self.tab4Form.addRow(self.recommendationText)
 
-        self.tab4.setLayout(self.tab4Form)
-
-
-        self.countryTextBox.addItems(ScorceCode.countryName(self))
+        #self.countryTextBox.addItems(ScorceCode.countryName(self))
         str = "test"
         self.recommendationText.setText(str)
-        '''
-        #test case
-        x = ['aaa', 'bbbb', 'cbccc', 'dddd']
-        y = [23,21,32,13]
-        z = [1,2,33,4]
-        self.barPainting(x,y,121)
-        self.barPainting(x,y,122)
-        '''
-
 
         # call the function to get the recommendation and then load it into the textbox
 
@@ -234,176 +180,20 @@ class MyTableWidget(QWidget):
 
 
 
-    def onActivated(self, text):
-
-        print(text+' Is selected')
-        #print(ScorceCode.forCountry(text,self.productName))
-        CountrySelected = text
-        print('breakpoint')
-        ls1 = ScorceCode.forCountry(CountrySelected,self.productName)
-        #ls1.to_csv('C:/Users/lakshay/Desktop/udemy/PRI_Exported_CSV_files/finlistState.csv')
-        #print(ls1)
-        finlistState = ls1.index.tolist()
-        self.gs1 = ls1
-
-        #print(finlistState)
-        #self.textEdit3.setText(ls1.to_string())
-
-        tableFor = "country"
-
-        self.createTable(tableFor)
-        print('breakpoint 1')
-
-       # self.stateTextBox.clear()
-        #self.cityTextBox.clear()
-       # self.stateTextBox.addItems(finlistState)
-
-        #print(self.stateTextBox.activated[str].connect(self.onActivated1))
-
-
-
-        self.plot(ls1)
-
-
-
-
-# have to pass the state value to this method !!!!!!!!!!!!!!!!!!
-    '''
-    def onActivated1(self, StateSelected):
-
-
-       try:
-        self.cityTextBox.clear()
-        print("state selected is ")
-        print(StateSelected)
-        print('value in state box :')
-        print(self.stateTextBox.currentText())
-        print(self.countryTextBox.currentText())
-        StateSelected= self.stateTextBox.currentText()
-        CountrySelected=self.countryTextBox.currentText()
-
-        ls2=ScorceCode.forState(CountrySelected,StateSelected,self.productName)
-        #ls2.to_csv('C:/Users/lakshay/Desktop/udemy/PRI_Exported_CSV_files/finlistCity.csv')
-        self.gs2 = ls2
-        finlistCity = ls2.index.tolist()
-
-        #self.textEdit3.setText(ls2.to_string())
-        tableFor = "state"
-        self.createTable(tableFor)
-
-        print('list of city')
-        #print(finlistCity)
-
-
-        self.cityTextBox.clear()
-        self.cityTextBox.addItems(finlistCity)
-
-
-
-        self.cityTextBox.activated[str].connect(self.onActivated2)
-        self.plot(ls2)
-
-
-       except:
-        print('An error occured while retrieving the cities of the states.')
-
-
-
-
-# have to pass the state value and city to this method !!!!!!!!!!
-
-    def onActivated2(self, CitySelected):
-        try:
-         StateSelected = self.stateTextBox.currentText()
-         CountrySelected = self.countryTextBox.currentText()
-         print('final country selected')
-         print(CountrySelected)
-         print('final state selected')
-         print(StateSelected)
-         print("final city selected is ")
-         print(CitySelected)
-         print('Number of total internet users in '+ CitySelected+ ' is:' )
-         print(ScorceCode.forTotalUsers(CountrySelected,CitySelected))
-
-
-         ls2 = ScorceCode.forState(CountrySelected, StateSelected, self.productName)
-
-         UserPercentage = int(ls2.loc[CitySelected, :])
-         print(UserPercentage)
-
-         totalUsers = ScorceCode.forTotalUsers(CountrySelected, CitySelected)
-         print(totalUsers)
-
-         finalUsers=int((totalUsers*UserPercentage)/100)
-
-         totalPopulation= ScorceCode.forTotalPop(CitySelected)
-         totalPenitration=ScorceCode.forTotalPenitration(CountrySelected)
-
-         ratio = int((finalUsers / totalPopulation) * 100)
-
-         self.recommendationText.setText("There are total of " + str(finalUsers) + " people searching for the keyword out of " + str(totalPopulation) + " people in the city of " + CitySelected + " which gives us the ratio of " + str(ratio) + "% of users searching for this keyword and the percentage of internet penetration is " + str(totalPenitration) + "%")
-         print('end')
-        except:
-         print('An error occured while retrieving the population data of the city: ' +CitySelected)
-
-
-    def createTable(self, tableFor):
+    def createTable(self,tableWidget):
         # Create table
-
-        # print("Table data " + self.tableDf)PROGRAM RUNNING?????????
-
         # find the table length
-        if (tableFor == "world"):
-            self.lsTest = self.gs
-        if(tableFor=="country"):
-            self.lsTest = self.gs1
-
-        #if(tableFor== "state"):
-         #   self.lsTest= self.gs2
-
-
-
-
-        # print(self.lsTest)
-        rows = self.lsTest.count()
-        columns = 2
-        # rows=10
-        #print(rows)
-
-        #print(columns)
-
+        self.lsTest = self.gs
+        rows = len(self.lsTest)
+        columns = 1
         # set the rows and columns of the table
-        self.tableWidget.setRowCount(rows)
-        self.tableWidget.setColumnCount(columns)
-
+        tableWidget.setRowCount(rows)
+        tableWidget.setColumnCount(columns)
         i = 0
-
-        for index, value in self.lsTest.iterrows():
-            #print(value[0])
+        for value in self.lsTest:
             if i < int(rows):
-                self.tableWidget.setItem(i, 0, QTableWidgetItem(index))
-                self.tableWidget.setItem(i, 1, QTableWidgetItem(str(value[0])))
+                tableWidget.setItem(i, 0, QTableWidgetItem(value))
                 i = i + 1
-            ## self.tableWidget.setItem(index, 2, QTableWidgetItem(row['']))
-
-        # for x in rows:
-        # for y in columns:
-
-        # if(y==0)
-        # self.tableWidget.setItem(x, y, QTableWidgetItem(self.tableDf[x][y]))
-
-        # self.tableWidget.setItem(0, 1, QTableWidgetItem("Cell (1,2)"))
-
-    def show_model(self):
-        font = QtGui.QFont()
-        font.setFamily('Lucida')
-        font.setFixedPitch(True)
-        font.setPointSize(10)
-        self.textEdit3.setCurrentFont(font)
-
-        # selmodel = self.creSelectModel[str(self.comboBox.currentText())]
-        self.textEdit3.setText("1234566465464")
-'''
     def export_csv_connect(self):
         print('Export data to CSV operation: ')
 
@@ -419,30 +209,32 @@ class MyTableWidget(QWidget):
         print("\n")
         print(self.productTextBox.text())
         self.productName=self.productTextBox.text()
+        self.countryName = self.countryTextBox.text()
 
-        self.countryTextBox.activated[str].connect(self.onActivated)
-
-
-        ls = ScorceCode.forWorld(self.productName)
-        #print(ls)
-        #ls.to_csv('C:/Users/lakshay/Desktop/udemy/PRI_Exported_CSV_files/finlistWorld.csv')
-        self.gs = ls
-        finlist = ls.index.tolist()
-        #print(finlist)
-        print('someht')
-        self.countryTextBox.clear()
-        self.countryTextBox.addItems(finlist)
-        self.countryTextBox.activated[str].connect(self.onActivated)
-        #makeitastring = ''.join(map(str, finlist))
-
-        #print('the string is')
-        #print(makeitastring)
-
-        tableFor = "world"
-        #self.textEdit3.setText(ls.to_string())
-        self.createTable(tableFor)
-
+        ls, rel_quer, rel_top = ScorceCode.forCountry(self.countryName,self.productName)
+        digital, analog = ScorceCode.forCountryMarketing(self.countryName)  #unpacking these two variable dataframes with the reslts
+        labeld = ['Email Marketing','Radio Advertising','Mobile Marketing','Television Advertising','Social Media Usage']
+        labela = ['Newspaper Marketing','Billboards','Bus Shelter Ads','Print Ads','Fliers']
+        E = digital['Email marketing'].mean()  # Print average popularity for marketing on this country
+        R = digital['Radio Advertising'].mean()
+        M = digital['Mobile Marketing'].mean()
+        T = digital['Television Advertising'].mean()
+        S = digital['Social Media Usage'].mean()
+        datad = [E, R, M, T, S]
+        N = analog['Newspaper Marketing'].mean() # Print average popularity for marketing on this country
+        B = analog['Billboards'].mean()
+        BUS = analog['Bus Shelter Ads'].mean()
+        ADS = analog['Print Ads'].mean()
+        Fil = analog['Fliers'].mean()
+        dataa = [N, B, BUS, ADS, Fil]
+        self.barPainting(labela,dataa,121)
+        self.barPainting(labeld,datad,122)
+        self.gs = rel_quer
+        self.createTable(self.tablewidget)
+        self.gs = rel_top
+        self.createTable(self.tablewidget2)
         self.plot(ls)
+
 
 
 
@@ -457,16 +249,7 @@ class MyTableWidget(QWidget):
 
             print("Inside the plot method")
             # Call the api #TODO
-
-
-            #statisticsPerCountry = SourceCode.forCountry(self.selectedCountry,self.productTextBox.text())
-            #statisticsPerState
-            #statisticsPerUsers
-
             print('plotBreak')
-
-
-
             # create an axis
             ax = self.figure.add_subplot(111)
 
@@ -474,13 +257,13 @@ class MyTableWidget(QWidget):
             ax.clear()
 
             # plot data
+
+            for tick in ax.get_xticklabels():
+                tick.set_rotation(20)
             ax.plot(data, '*-')
 
             # refresh canvas
             self.canvas.draw()
-
-       # else:
-          #  QMessageBox.about(self, "Inputs", "Please check your inputs")
 
 
 
