@@ -4,7 +4,6 @@
     <list default="true" id="bd12ec1d-2096-4702-a9fa-70633dd27a24" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEndfinal11.py" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEndfinal11.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MainCodefinal.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainCodefinal.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,7 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/PRI$FrontEndfinal11.coverage" NAME="FrontEndfinal11 Coverage Results" MODIFIED="1549211364888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PRI$FrontEndfinal11.coverage" NAME="FrontEndfinal11 Coverage Results" MODIFIED="1549215994820" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -26,11 +25,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FrontEndfinal11.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="50" column="20" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
+            <state relative-caret-position="385">
+              <caret line="179" column="23" selection-start-line="179" selection-start-column="23" selection-end-line="179" selection-end-column="23" />
               <folding>
                 <element signature="e#1#11#0" expanded="true" />
               </folding>
@@ -38,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MainCodefinal.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="74" column="17" lean-forward="true" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
+            <state relative-caret-position="696">
+              <caret line="159" lean-forward="true" selection-start-line="159" selection-end-line="159" />
               <folding>
                 <element signature="e#2#21#0" expanded="true" />
               </folding>
@@ -87,8 +86,8 @@
       <list>
         <option value="$PROJECT_DIR$/Compare_Services.py" />
         <option value="$PROJECT_DIR$/Services.py" />
-        <option value="$PROJECT_DIR$/FrontEndfinal11.py" />
         <option value="$PROJECT_DIR$/MainCodefinal.py" />
+        <option value="$PROJECT_DIR$/FrontEndfinal11.py" />
       </list>
     </option>
   </component>
@@ -185,12 +184,13 @@
       <workItem from="1547986933562" duration="270000" />
       <workItem from="1548086195587" duration="23055000" />
       <workItem from="1548868226648" duration="1758000" />
-      <workItem from="1549202331531" duration="8415000" />
+      <workItem from="1549202331531" duration="8660000" />
+      <workItem from="1549215676364" duration="310000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50713000" />
+    <option name="totallyTimeSpent" value="51268000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -205,19 +205,19 @@
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1971917" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1996337" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4920635" weight="0.32857144" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.4920635" visible="true" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.491453" visible="true" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4993895" weight="0.32857144" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4957265" weight="0.29081634" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50793654" side_tool="true" visible="true" weight="0.4" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4945055" weight="0.29081634" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.508547" side_tool="true" visible="true" weight="0.4" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.498779" weight="0.32959184" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
@@ -288,22 +288,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEndfinal11.py">
+    <entry file="file://$PROJECT_DIR$/MainCodefinal.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="50" column="20" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
+        <state relative-caret-position="696">
+          <caret line="159" lean-forward="true" selection-start-line="159" selection-end-line="159" />
           <folding>
-            <element signature="e#1#11#0" expanded="true" />
+            <element signature="e#2#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MainCodefinal.py">
+    <entry file="file://$PROJECT_DIR$/FrontEndfinal11.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="74" column="17" lean-forward="true" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
+        <state relative-caret-position="385">
+          <caret line="179" column="23" selection-start-line="179" selection-start-column="23" selection-end-line="179" selection-end-column="23" />
           <folding>
-            <element signature="e#2#21#0" expanded="true" />
+            <element signature="e#1#11#0" expanded="true" />
           </folding>
         </state>
       </provider>

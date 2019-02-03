@@ -177,6 +177,7 @@ class MyTableWidget(QWidget):
         #self.axes.set_xticks([0,1,2,3])
         self.axes.set_yticklabels(labels, rotation=40)
         self.axes.tick_params(axis='y', labelsize=5)
+        self.canvasComp.draw()
 
 
 
