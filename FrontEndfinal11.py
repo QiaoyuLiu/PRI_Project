@@ -1,10 +1,8 @@
 
 import sys
 from PyQt5.QtWidgets import QTableWidgetItem, QTableWidget,QTextEdit, QMainWindow, QApplication, QPushButton, QWidget, QAction, QTabWidget, \
-    QVBoxLayout, QDesktopWidget, QFormLayout, QLabel, QLineEdit, QComboBox, QMessageBox
-from PyQt5.QtGui import QIcon, QFont
-from PyQt5.QtCore import *
-import matplotlib.pyplot as plt
+    QVBoxLayout,QHBoxLayout, QDesktopWidget, QFormLayout, QLabel, QLineEdit, QComboBox, QMessageBox
+from PyQt5.QtGui import QIcon
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
 import pandas as pd
 from matplotlib.figure import Figure
@@ -48,6 +46,7 @@ class MyTableWidget(QWidget):
 
         # The dataframe
         self.df = pd.DataFrame()
+        # The data for the data table
         self.gs = []
         # Initialize the labels for the first tab
 
@@ -79,7 +78,6 @@ class MyTableWidget(QWidget):
         self.submitButton.resize(self.submitButton.sizeHint())
         self.submitButton.clicked.connect(self.on_click)
         self.show()
-        #print(self.on_click)
 
         # Buttons to be added to the first tab
         self.clearAllButton = QPushButton("Clear All")
@@ -92,15 +90,11 @@ class MyTableWidget(QWidget):
         # Initialize tab screen
         self.tabs = QTabWidget()
         self.tab1 = QWidget()
-        self.tab2 = QWidget()
-        self.tab3 = QWidget()
         self.tab4 = QWidget()
         self.tabs.resize(480, 320)
 
         # Add tabs
         self.tabs.addTab(self.tab1, "The Input Tab")
-        self.tabs.addTab(self.tab2, "The result")
-        #self.tabs.addTab(self.tab3, "The Data")
         self.tabs.addTab(self.tab4, "The Recommendation")
 
         # Create first tab
@@ -123,46 +117,53 @@ class MyTableWidget(QWidget):
 
         # Canvas and Toolbar
         # a figure instance to plot on
-        self.figure = Figure()
-        self.figureComp = Figure()
-
+        self.figure = Figure(figsize=(100,100))
+        self.figure.suptitle('Trending search score')
+        self.figureComp = Figure(figsize=(100,100))
+        self.figureComp.suptitle('Analog VS Digital')
         # this is the Canvas Widget that displays the `figure`
         # it takes the `figure` instance as a parameter to __init__
         self.canvas = FigureCanvas(self.figure)
         self.canvasComp = FigureCanvas(self.figureComp)
         # this is the Navigation widget
-        # it takes the Canvas widget and a parent
-        self.toolbar = NavigationToolbar(self.canvas, self)
-
-        # Create the second tab
-        tab2layout = QVBoxLayout()
-        tab2layout.addWidget(self.toolbar)
-        tab2layout.addWidget(self.canvas)
-        tab2layout.addWidget(self.canvasComp)
-
-
-        self.tab2.setLayout(tab2layout)
-
-        # Tab 4 The Recommendation
-
+        # Set a table to show the data
         self.tab4Form = QFormLayout()
+        self.tab4Formsub = QHBoxLayout()
+        #self.tab4Formsub1 = QFormLayout()
+        #self.tab4Formsub2 = QFormLayout()
         self.tablewidget = QTableWidget()
         self.tablewidget2 = QTableWidget()
-        self.tablewidget.setMinimumSize(300,70)
-        self.tablewidget2.setMinimumSize(300,70)
+        self.tablewidget.adjustSize()
+        self.tablewidget.setMaximumSize(300,80)
+        self.tablewidget2.setMaximumSize(300,80)
         self.tablewidget.horizontalHeader().setStretchLastSection(True)
         self.tablewidget2.horizontalHeader().setStretchLastSection(True)
         self.recommendationText = QLabel()
-        #self.recommendationText.setMinimumSize(480, 320)
+        self.recommendationText.setMinimumSize(400,100)
         self.recommendationText.setToolTip("This tab shows the recommendation ")
         self.relQuerry = QLabel('Related Querry')
-        self.relTop = QLabel('Related Top')
-        self.tab4Form.addRow(self.relQuerry,self.tablewidget)
-        self.tab4Form.addRow(self.relTop,self.tablewidget2)
-        self.tab4.setLayout(self.tab4Form)
-        self.tab4Form.addRow(self.recommendationText)
+        self.relTop = QLabel('Related Topics')
+        self.linechartLabel = QLabel('The trends')
+        self.barchartLabel = QLabel('The comparision')
+        self.relTop.setMaximumSize(100,100)
+        self.relQuerry.setMaximumSize(100,100)
+        self.test1 = QLabel('test')
+        self.test2 = QLabel('test')
+        self.test3 = QLabel('test')
+        self.test4 = QLabel('test')
+        self.tab4Formsub.addWidget(self.relQuerry)
+        self.tab4Formsub.addWidget(self.tablewidget)
+        self.tab4Formsub.addWidget(self.relTop)
+        self.tab4Formsub.addWidget(self.tablewidget2)
+        self.tab4Formsub.addWidget(self.recommendationText)
+        self.tab4Form.addRow(self.linechartLabel,self.canvas)
+        self.tab4Form.addRow(self.barchartLabel,self.canvasComp)
 
-        #self.countryTextBox.addItems(ScorceCode.countryName(self))
+        self.tab4Form.addRow(self.tab4Formsub)
+        #self.tab4Form.addRow(self.relQuerry,self.tablewidget)
+        #self.tab4Form.addRow(self.relTop,self.tablewidget2)
+        self.tab4.setLayout(self.tab4Form)
+        #self.tab4Form.addRow(self.recommendationText)
         str = "test"
         self.recommendationText.setText(str)
 
@@ -181,6 +182,7 @@ class MyTableWidget(QWidget):
 
 
 
+    # Create the data table in tab 4, parameter is the table you want to set(tablewidget and tablewidget2)
     def createTable(self,tableWidget):
         # Create table
         # find the table length
@@ -195,6 +197,8 @@ class MyTableWidget(QWidget):
             if i < int(rows):
                 tableWidget.setItem(i, 0, QTableWidgetItem(value))
                 i = i + 1
+    '''
+    # export csv files (if needed)
     def export_csv_connect(self):
         print('Export data to CSV operation: ')
 
@@ -205,22 +209,23 @@ class MyTableWidget(QWidget):
         self.gs2.to_csv('C:/Users/lakshay/Desktop/udemy/PRI_Exported_CSV_files/finlistCity.csv')
 
         QMessageBox.about(self, "Export to CSV", "Files Exported Successfully")
-
+    '''
+    # Function while the button is clicked.
     def on_click(self):
         print("\n")
         print(self.productTextBox.text())
         self.productName=self.productTextBox.text()
         self.countryName = self.countryTextBox.text()
-
+        # Draw the comparison bar chart
         ls, rel_quer, rel_top = ScorceCode.forCountry(self.countryName,self.productName)
-        digital, analog = ScorceCode.forCountryMarketing(self.countryName)  #unpacking these two variable dataframes with the reslts
-        labeld = ['Email Marketing','Radio Advertising','Mobile Marketing','Television Advertising','Social Media Usage']
+        digital, analog = ScorceCode.forCountryMarketing(self.countryName)
+        labeld = ['Email Marketing','Radio Advertising','Mobile Marketing','Television Advertising','Facebook Advertisement']
         labela = ['Newspaper Marketing','Billboards','Bus Shelter Ads','Print Ads','Fliers']
         E = digital['Email marketing'].mean()  # Print average popularity for marketing on this country
         R = digital['Radio Advertising'].mean()
         M = digital['Mobile Marketing'].mean()
         T = digital['Television Advertising'].mean()
-        S = digital['Social Media Usage'].mean()
+        S = digital['Facebook Advertisement'].mean()
         datad = [E, R, M, T, S]
         N = analog['Newspaper Marketing'].mean() # Print average popularity for marketing on this country
         B = analog['Billboards'].mean()
@@ -230,19 +235,21 @@ class MyTableWidget(QWidget):
         dataa = [N, B, BUS, ADS, Fil]
         self.barPainting(labela,dataa,121)
         self.barPainting(labeld,datad,122)
+        # Generate the related top and querry in the tab 4
         self.gs = rel_quer
         self.createTable(self.tablewidget)
         self.gs = rel_top
         self.createTable(self.tablewidget2)
+        # Paint the line chart
         self.plot(ls)
 
-
-
-
+    # CLear the productTextBox and the country text box
     def clear_on_click(self):
         self.productTextBox.clear()
+        self.countryTextBox.clear()
         print('all clear')
 
+    # function to draw the line chart
     def plot(self,data):
 
         # hit only if we have values on all the four components

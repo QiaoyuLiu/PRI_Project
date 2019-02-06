@@ -101,7 +101,7 @@ class ScorceCode:
     def forCountryMarketing(Country):
         pytrend = TrendReq()
         ctemp = pycountry.countries.get(name=Country.title())
-        pytrend.build_payload(kw_list=['Email marketing', 'Radio Advertising', 'Mobile Marketing', 'Television Advertising', 'Social Media Usage'], geo=ctemp.alpha_2) #It can take maximum 5 products in kw_list
+        pytrend.build_payload(kw_list=['Email marketing', 'Radio Advertising', 'Mobile Marketing', 'Television Advertising', 'Facebook Advertisement'], geo=ctemp.alpha_2) #It can take maximum 5 products in kw_list
         digital_marketing = pytrend.interest_by_region(resolution='REGION')
         pytrend.build_payload(kw_list=['Newspaper Marketing', 'Billboards', 'Bus Shelter Ads', 'Print Ads','Fliers'],geo=ctemp.alpha_2)
         analog_marketing = pytrend.interest_by_region(resolution='REGION')
