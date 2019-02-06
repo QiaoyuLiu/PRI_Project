@@ -109,6 +109,58 @@ class ScorceCode:
         return digital_marketing , analog_marketing
 
 
+    def RecommendationText(analog,digital):
+        recommedantion = ''
+
+        maxAnag = 0
+        Anag_Name= ''
+        typeofAnalog=0
+        Digi_Name=''
+        maxDigi = 0
+        typeofDigital=0
+        for marketing in analog:
+           if(marketing>maxAnag):
+               maxAnag=marketing
+               typeofAnalog= analog.index(marketing);
+               if typeofAnalog == 0 :
+                   Anag_Name= 'Newspaper Marketing'
+               elif typeofAnalog == 1:
+                   Anag_Name = 'Billboards'
+               elif typeofAnalog == 2:
+                   Anag_Name = 'Bus Shelter Ads'
+               elif typeofAnalog == 1:
+                   Anag_Name = 'Print Ads'
+               elif typeofAnalog == 1:
+                   Anag_Name = 'Fliers'
+
+
+        for marketing in digital:
+           if(marketing>maxDigi):
+               maxDigi=marketing
+               typeofDigital = digital.index(marketing)
+               if typeofDigital == 0 :
+                   Digi_Name= 'Email marketing'
+               elif typeofAnalog == 1:
+                   Digi_Name = 'Radio Advertising'
+               elif typeofAnalog == 2:
+                   Digi_Name = 'Mobile Marketing'
+               elif typeofAnalog == 1:
+                   Digi_Name = 'Television Advertising'
+               elif typeofAnalog == 1:
+                   Digi_Name = 'Facebook Advertisement'
+
+
+        if maxDigi > maxAnag:
+            recommedantion =  'Thes most popular analog marketing in this country is ' + Anag_Name  +' and the most popular digital marketing is ' + Digi_Name + '.\n' + \
+                              'As the results show the most recommended approach of marketing is the Digital marketing approach'
+        else:
+            recommedantion = 'Thes most popular analog marketing in this country is ' + Anag_Name + 'and the most popular digital marketing is ' + Digi_Name + '.\n' + \
+                             'As the results show the most recommended approach of marketing is the Analog marketing approach'
+
+        print(recommedantion)
+
+
+        return recommedantion
 
     #User enters the state value after choosing the country
     def forState(Country, State, product):

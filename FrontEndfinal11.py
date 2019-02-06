@@ -14,7 +14,7 @@ class App(QMainWindow):
 
     def __init__(self):
         super().__init__()
-        self.title = 'The blue ocean'
+        self.title = 'Blue Ocean Whale Sharks'
         self.left = 200
         self.top = 200
         self.width = 700
@@ -233,6 +233,10 @@ class MyTableWidget(QWidget):
         ADS = analog['Print Ads'].mean()
         Fil = analog['Fliers'].mean()
         dataa = [N, B, BUS, ADS, Fil]
+
+        ReccomendedString = ScorceCode.RecommendationText(dataa,datad)
+
+
         self.barPainting(labela,dataa,121)
         self.barPainting(labeld,datad,122)
         # Generate the related top and querry in the tab 4
