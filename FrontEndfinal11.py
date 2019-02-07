@@ -30,7 +30,7 @@ class App(QMainWindow):
         centerPoint = QDesktopWidget().availableGeometry().center()
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
-
+        self.showMaximized()
         self.show()
 
 
@@ -72,14 +72,14 @@ class MyTableWidget(QWidget):
         # this is the Canvas Widget that displays the `figure`
         # it takes the `figure` instance as a parameter to __init__
         self.canvas = FigureCanvas(self.figure)
-
+        # Buttons to be added to the first tab
         self.submitButton = QPushButton("Submit")
         self.submitButton.setToolTip("To submit and get results")
         self.submitButton.resize(self.submitButton.sizeHint())
         self.submitButton.clicked.connect(self.on_click)
         self.show()
 
-        # Buttons to be added to the first tab
+
         self.clearAllButton = QPushButton("Clear All")
         self.clearAllButton.resize(self.clearAllButton.sizeHint())
         self.clearAllButton.setToolTip("To clear all the fields")
@@ -98,6 +98,7 @@ class MyTableWidget(QWidget):
         self.tabs.addTab(self.tab4, "The Recommendation")
 
         # Create first tab
+        '''
         self.tab1.layout = QVBoxLayout(self)
 
         self.tab1.layout.addWidget(self.productLabel)
@@ -106,10 +107,15 @@ class MyTableWidget(QWidget):
         self.tab1.layout.addWidget(self.countryTextBox)
         self.tab1.layout.addWidget(self.submitButton)
         self.tab1.layout.addWidget(self.clearAllButton)
+        '''
+        self.tab1form = QFormLayout()
+
+        self.tab1form.addRow(self.productLabel,self.productTextBox)
+        self.tab1form.addRow(self.countryLabel,self.countryTextBox)
+        self.tab1form.addRow(self.submitButton,self.clearAllButton)
 
 
-
-        self.tab1.setLayout(self.tab1.layout)
+        self.tab1.setLayout(self.tab1form)
 
         # Add tabs to widget
         self.layout.addWidget(self.tabs)
@@ -164,10 +170,7 @@ class MyTableWidget(QWidget):
         #self.tab4Form.addRow(self.relTop,self.tablewidget2)
         self.tab4.setLayout(self.tab4Form)
         #self.tab4Form.addRow(self.recommendationText)
-        str = "test"
-        self.recommendationText.setText(str)
 
-        # call the function to get the recommendation and then load it into the textbox
 
         #Provide labels and data as lists and the number of subplot to draw the bar chart
     def barPainting(self,labels,data,n_subplot):
@@ -235,7 +238,7 @@ class MyTableWidget(QWidget):
         dataa = [N, B, BUS, ADS, Fil]
 
         ReccomendedString = ScorceCode.RecommendationText(dataa,datad)
-
+        self.recommendationText.setText(ReccomendedString)
 
         self.barPainting(labela,dataa,121)
         self.barPainting(labeld,datad,122)

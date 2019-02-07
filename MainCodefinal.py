@@ -69,8 +69,10 @@ class ScorceCode:
 
         related_topics = pytrend.related_topics()
         related_queries = pytrend.related_queries()
-        dc = interest_by_region_df.loc[(interest_by_region_df != 0).any(axis=1)].iloc[0:10]
 
+        dc = interest_by_region_df.loc[(interest_by_region_df != 0).any(axis=1)]
+        column_name = dc.columns.values
+        dc = dc.sort_values(by=column_name[0],ascending= False).iloc[0:10]
         list_of_related_queries = []
         list_of_related_topics = []
 
