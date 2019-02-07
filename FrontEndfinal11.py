@@ -126,6 +126,7 @@ class MyTableWidget(QWidget):
         self.figure = Figure(figsize=(100,100))
         self.figure.suptitle('Trending search score')
         self.figureComp = Figure(figsize=(100,100))
+        self.figureComp.subplots_adjust(wspace=0.4)
         self.figureComp.suptitle('Analog VS Digital')
         # this is the Canvas Widget that displays the `figure`
         # it takes the `figure` instance as a parameter to __init__
@@ -179,8 +180,8 @@ class MyTableWidget(QWidget):
         self.axes.clear()
         self.axes.barh(labels,data,width,align="center")
         #self.axes.set_xticks([0,1,2,3])
-        self.axes.set_yticklabels(labels, rotation=40)
-        self.axes.tick_params(axis='y', labelsize=5)
+        self.axes.set_yticklabels(labels, rotation=0)
+        self.axes.tick_params(axis='y', labelsize=8)
         self.canvasComp.draw()
 
 
@@ -274,7 +275,8 @@ class MyTableWidget(QWidget):
             # plot data
 
             for tick in ax.get_xticklabels():
-                tick.set_rotation(20)
+                tick.set_rotation(6)
+                tick.set_size(8)
             ax.plot(data, '*-')
 
             # refresh canvas

@@ -156,10 +156,9 @@ class ScorceCode:
             recommedantion =  'Thes most popular analog marketing in this country is ' + Anag_Name  +' and the most popular digital marketing is ' + Digi_Name + '.\n' + \
                               'As the results show the most recommended approach of marketing is the Digital marketing approach'
         else:
-            recommedantion = 'Thes most popular analog marketing in this country is ' + Anag_Name + 'and the most popular digital marketing is ' + Digi_Name + '.\n' + \
+            recommedantion = 'Thes most popular analog marketing in this country is ' + Anag_Name + ' and the most popular digital marketing is ' + Digi_Name + '.\n' + \
                              'As the results show the most recommended approach of marketing is the Analog marketing approach'
 
-        print(recommedantion)
 
 
         return recommedantion
