@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="bd12ec1d-2096-4702-a9fa-70633dd27a24" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EPITA-PRI-poster.key" beforeDir="false" />
     </list>
+=======
+    <list default="true" id="bd12ec1d-2096-4702-a9fa-70633dd27a24" name="Default Changelist" comment="" />
+>>>>>>> 76feb529a6342d4b496599778dbdde7a3cb9b7a4
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,16 +16,26 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+<<<<<<< HEAD
     <SUITE FILE_PATH="coverage/PRI$FrontEndfinal11.coverage" NAME="FrontEndfinal11 Coverage Results" MODIFIED="1549536350250" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PRI_Project$FrontEndfinal11.coverage" NAME="FrontEndfinal11 Coverage Results" MODIFIED="1549964389508" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+=======
+    <SUITE FILE_PATH="coverage/PRI$FrontEndfinal11.coverage" NAME="FrontEndfinal11 Coverage Results" MODIFIED="1549565333656" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PRI_Project$FrontEndfinal11.coverage" NAME="FrontEndfinal11 Coverage Results" MODIFIED="1549477019378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+>>>>>>> 76feb529a6342d4b496599778dbdde7a3cb9b7a4
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FrontEndfinal11.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="163">
               <caret line="125" column="47" selection-start-line="125" selection-start-column="47" selection-end-line="125" selection-end-column="47" />
+=======
+            <state relative-caret-position="1755">
+              <caret line="117" column="42" selection-start-line="117" selection-start-column="42" selection-end-line="117" selection-end-column="42" />
+>>>>>>> 76feb529a6342d4b496599778dbdde7a3cb9b7a4
               <folding>
                 <element signature="e#1#11#0" expanded="true" />
               </folding>
@@ -32,8 +46,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MainCodefinal.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="2325">
               <caret line="160" selection-start-line="160" selection-end-line="160" />
+=======
+            <state relative-caret-position="1095">
+              <caret line="73" column="39" selection-start-line="73" selection-start-column="39" selection-end-line="73" selection-end-column="39" />
+>>>>>>> 76feb529a6342d4b496599778dbdde7a3cb9b7a4
               <folding>
                 <element signature="e#2#21#0" expanded="true" />
               </folding>
@@ -175,14 +194,22 @@
       <workItem from="1549467537043" duration="650000" />
       <workItem from="1549473637628" duration="3248000" />
       <workItem from="1549533729985" duration="2519000" />
+<<<<<<< HEAD
       <workItem from="1549565672367" duration="5643000" />
       <workItem from="1549621613244" duration="241000" />
       <workItem from="1549877700172" duration="622000" />
+=======
+      <workItem from="1549549642464" duration="147000" />
+>>>>>>> 76feb529a6342d4b496599778dbdde7a3cb9b7a4
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="70476000" />
+=======
+    <option name="totallyTimeSpent" value="64117000" />
+>>>>>>> 76feb529a6342d4b496599778dbdde7a3cb9b7a4
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -194,7 +221,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="0" y="23" width="1440" height="806" extended-state="0" />
+=======
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+>>>>>>> 76feb529a6342d4b496599778dbdde7a3cb9b7a4
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.21489622" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -292,12 +323,33 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file:///usr/local/lib/python3.7/site-packages/pandas/core/generic.py" />
     <entry file="file:///usr/local/lib/python3.7/site-packages/pandas/core/frame.py" />
     <entry file="file://$PROJECT_DIR$/FrontEndfinal11.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
           <caret line="125" column="47" selection-start-line="125" selection-start-column="47" selection-end-line="125" selection-end-column="47" />
+=======
+    <entry file="file:///usr/local/lib/python3.7/site-packages/pandas/core/generic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="1381" selection-start-line="1381" selection-end-line="1381" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.7/site-packages/pandas/core/frame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="4420" selection-start-line="4420" selection-end-line="4420" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEndfinal11.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1755">
+          <caret line="117" column="42" selection-start-line="117" selection-start-column="42" selection-end-line="117" selection-end-column="42" />
+>>>>>>> 76feb529a6342d4b496599778dbdde7a3cb9b7a4
           <folding>
             <element signature="e#1#11#0" expanded="true" />
           </folding>
@@ -306,8 +358,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MainCodefinal.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="2325">
           <caret line="160" selection-start-line="160" selection-end-line="160" />
+=======
+        <state relative-caret-position="1095">
+          <caret line="73" column="39" selection-start-line="73" selection-start-column="39" selection-end-line="73" selection-end-column="39" />
+>>>>>>> 76feb529a6342d4b496599778dbdde7a3cb9b7a4
           <folding>
             <element signature="e#2#21#0" expanded="true" />
           </folding>
